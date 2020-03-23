@@ -7,6 +7,6 @@ class BillCounter {
         return if (sum == b)
             "Bon Appetit"
         else
-            (b - sum).toString()
+            "${b - sum}"
     }
 }
