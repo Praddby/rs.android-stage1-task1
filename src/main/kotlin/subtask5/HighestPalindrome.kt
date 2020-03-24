@@ -12,21 +12,26 @@ class HighestPalindrome {
                 if (index < n / 2) {
                     val lastIndex = digitString.lastIndex - index
                     if (c != digitString[lastIndex]) {
-                        listString[lastIndex] = maxDigitsList.toString()
-                        listString[index] = maxDigitsList.toString()
-                        count++
+                        if (maxDigitsList != listString[lastIndex]) {
+                            listString[lastIndex] = maxDigitsList.toString()
+                            count++
+                        }
+                        if (maxDigitsList != listString[index]) {
+                            listString[index] = maxDigitsList.toString()
+                            count++
+                        }
                     }
                 }
             }
         }
-        return if (newString(listString).dropLast(n/2) == newString(listString).drop(n/2).reversed())
-            newString(listString)
+        return if (getString(listString).dropLast(n/2) == getString(listString).drop(n/2).reversed())
+            getString(listString)
         else
             "-1"
     }
 }
 
-private fun newString(str: MutableList<String>) = buildString {
+private fun getString(str: MutableList<String>) = buildString {
     for (c in str)
         append(c)
 }
